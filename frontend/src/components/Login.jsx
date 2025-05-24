@@ -17,7 +17,7 @@ function Login() {
     <div className="w-screen h-screen bg-gray-100 flex items-center justify-center">
       <div className="sm:w-[300px] sm:h-[350px] lg:w-[400px] lg:h-[400px] bg-white shadow-md rounded-lg p-6">
         <h2 className="text-center text-2xl font-bold text-gray-800 mb-4">
-          Login
+          Admin Login
         </h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
