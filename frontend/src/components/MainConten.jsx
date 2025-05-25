@@ -7,7 +7,7 @@ import TeamsUsers from "./TeamsUsers";
 import Setting from "./Setting";
 function MainConten() {
   return (
-    <div className="bg-white p-6 rounded-md shadow-md overflow-auto">
+    <div className="bg-white p-6 rounded-md shadow-md w-full overflow-auto">
       {/* Main content */}
       <Routes>
         <Route path="/" element={<Dashboard />} />

@@ -29,7 +29,7 @@ function Setting() {
           description="Control theme, layout, and language settings."
         />
         <SettingCard
-          icon={<LogOut className="w-5 h-5"      onClick={logoutHandler} />}
+          icon={<LogOut className="w-5 h-5"  onClick={logoutHandler} />}
           title="Logout"
           description="Logout the current account."
         />
