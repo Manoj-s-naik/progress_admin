@@ -12,6 +12,8 @@ import { useEffect } from "react";
 function Dashboard() {
   const [employeCount, setEmployeCount] = useState(null);
   const [projectsCount, setProjectsCounts] = useState(null);
+  const [pendingTaskCount, setpendingTaskCount] = useState(null);
+  const [completedTaskCount, setcompletedTaskCount] = useState(null);
   const employeesCountFetcher = async () => {
     try {
       const response = await fetch("http://localhost:3000/api/admin/userCount");
@@ -36,9 +38,39 @@ function Dashboard() {
     }
   };
 
+  const pendingTaskCountHandler = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:3000/api/task/pendingTaskCount",
+        { method: "GET", credentials: "include" }
+      );
+      const data = await response.json();
+      console.log("data", data);
+      setpendingTaskCount(data.tasksCount);
+    } catch (error) {
+      console.log("error while fetching pending task count", error.message);
+    }
+  };
+
+  const completedTaskCountHandler = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:3000/api/task/completedTaskCount",
+        { method: "GET", credentials: "include" }
+      );
+      const data = await response.json();
+      console.log("data", data);
+      setcompletedTaskCount(data.tasksCount);
+    } catch (error) {
+      console.log("error while fetching completed task count", error.message);
+    }
+  };
+
   useEffect(() => {
     employeesCountFetcher();
     ProjectCountFetcher();
+    pendingTaskCountHandler();
+    completedTaskCountHandler();
   }, []);
 
   return (
@@ -49,8 +81,16 @@ function Dashboard() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <Card title="Employees" value={employeCount} Icon={Users} />
         <Card title="Projects" value={projectsCount} Icon={FolderOpen} />
-        <Card title="Pending Tasks" value="38" Icon={ListChecks} />
-        <Card title="Completed Tasks" value="64" Icon={BarChart3} />
+        <Card
+          title="Pending Tasks"
+          value={pendingTaskCount}
+          Icon={ListChecks}
+        />
+        <Card
+          title="Completed Tasks"
+          value={completedTaskCount}
+          Icon={BarChart3}
+        />
       </div>
 
       {/* Sections */}
