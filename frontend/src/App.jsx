@@ -1,17 +1,11 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import EmployeList from "./components/EmployeList";
+import { Route, Routes } from "react-router-dom";
 import EmployeDetails from "./components/EmployeDetails";
+import EmployeList from "./components/EmployeList";
 
-import Login from "./components/Login";
-import Signup from "./components/Signup";
-import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./components/Home";
-import TaskPage from "./components/TaskPage";
-import Reports from "./components/Reports";
-import Projects from "./components/Projects";
-import TeamsUsers from "./components/TeamsUsers";
-import Setting from "./components/Setting";
+import Login from "./components/Login";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Signup from "./components/Signup";
 
 function App() {
   return (

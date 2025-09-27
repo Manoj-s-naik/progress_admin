@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 const DB_Username = process.env.DB_Username;
 const DB_Password = process.env.DB_Password;
 
-const dblink = `mongodb+srv://manojnaik4work:QDbri1AmJnjY71Ar@cluster0.ebbbk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+const dblink = `mongodb+srv://${DB_Username}:${DB_Password}@cluster0.ebbbk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 app.listen(PORT, () => {
   console.log(`Server is running at port ${PORT}`);
